@@ -1,4 +1,4 @@
-name: Makefile CI
+name: Import Rules to Elastic
 
 on:
   push:
