@@ -16,7 +16,9 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Install dependencies
-      run: make
+      run: |
+        alias python3.12="python"
+        make
 
     - name: Run check
       run: make check
