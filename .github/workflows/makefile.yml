@@ -1,0 +1,39 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    environment: Automation
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: configure
+      run: ./configure
+
+    - name: Install dependencies
+      run: make
+
+    - name: Run check
+      run: make check
+
+    - name: Run distcheck
+      run: make distcheck
+
+    - name: Set up Python 
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.12"
+
+    - name: Import Rules
+      run: python -m detection_rules export-rules-to-repo -d rules/ -o exports/exported_rules.ndjson
+      env: 
+        DR_KIBANA_URL: ${{ secrets.DR_KIBANA_URL }}
+        DR_API_KEY: ${{ secrets.DR_API_KEY }}
