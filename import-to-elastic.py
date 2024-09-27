@@ -7,7 +7,7 @@ kibana_url = getenv('DR_KIBANNA_URL')
 api_key = getenv('DR_API_KEY')
 
 headers = {
-    "Authorization": f"ApiKey {DR_API_KEY}",
+    "Authorization": f"ApiKey {api_key}",
     "kbn-xsrf": "true"
 }
 
