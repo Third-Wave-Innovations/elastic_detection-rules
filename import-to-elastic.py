@@ -5,7 +5,9 @@ import requests
 # load_dotenv()
 kibana_url = os.environ.get('DR_KIBANNA_URL')
 api_key = os.environ.get('DR_API_KEY')
-
+if kibana_url is None:
+    print("Failed to get env vars!")
+    
 headers = {
     "Authorization": f"ApiKey {api_key}",
     "kbn-xsrf": "true"
