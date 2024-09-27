@@ -1,5 +1,5 @@
 # from dotenv import load_dotenv
-from os # import getenv
+import os # import getenv
 import requests
 
 # load_dotenv()
