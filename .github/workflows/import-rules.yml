@@ -27,7 +27,7 @@ jobs:
         pip install lib/kibana lib/kql
 
     - name: Export Rules to Repo
-      run: python -m detection_rules export-rules-to-repo -d rules/ -o exports/exported_rules.ndjson
+      run: python -m detection_rules export-rules-from-repo -d rules/ -o exports/exported_rules.ndjson
       env: 
         DR_KIBANA_URL: ${{ secrets.DR_KIBANA_URL }}
         DR_API_KEY: ${{ secrets.DR_API_KEY }}
