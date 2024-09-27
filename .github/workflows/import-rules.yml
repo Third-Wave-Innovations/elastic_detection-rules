@@ -29,9 +29,9 @@ jobs:
 
     - name: Export Rules from Repo
       run: python -m detection_rules export-rules-from-repo -d rules/ -o exports/exported_rules.ndjson
-      env: 
-        DR_KIBANA_URL: ${{ secrets.DR_KIBANA_URL }}
-        DR_API_KEY: ${{ secrets.DR_API_KEY }}
+      # env: 
+      #   DR_KIBANA_URL: ${{ secrets.DR_KIBANA_URL }}
+      #   DR_API_KEY: ${{ secrets.DR_API_KEY }}
 
     - name: Import Rules to Elastic
       run: python ./import-to-elastic.py
