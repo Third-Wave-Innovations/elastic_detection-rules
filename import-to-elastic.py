@@ -1,10 +1,10 @@
-# from dotenv import load_dotenv
-import os # import getenv
+from dotenv import load_dotenv
+from os import getenv
 import requests
 
-# load_dotenv()
-kibana_url = os.environ.get('DR_KIBANNA_URL')
-api_key = os.environ.get('DR_API_KEY')
+load_dotenv()
+kibana_url = getenv('DR_KIBANA_URL')
+api_key = getenv('DR_API_KEY')
 if kibana_url is None:
     print("Failed to get env vars!")
     
