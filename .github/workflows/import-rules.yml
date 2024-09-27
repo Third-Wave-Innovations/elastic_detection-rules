@@ -25,8 +25,9 @@ jobs:
       run: |
         pip install .[dev]
         pip install lib/kibana lib/kql
+        pip install python-dotenv
 
-    - name: Export Rules to Repo
+    - name: Export Rules from Repo
       run: python -m detection_rules export-rules-from-repo -d rules/ -o exports/exported_rules.ndjson
       env: 
         DR_KIBANA_URL: ${{ secrets.DR_KIBANA_URL }}
