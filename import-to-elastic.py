@@ -1,10 +1,10 @@
-from dotenv import load_dotenv
-from os import getenv
+# from dotenv import load_dotenv
+from os # import getenv
 import requests
 
-load_dotenv()
-kibana_url = getenv('DR_KIBANNA_URL')
-api_key = getenv('DR_API_KEY')
+# load_dotenv()
+kibana_url = os.environ.get('DR_KIBANNA_URL')
+api_key = os.environ.get('DR_API_KEY')
 
 headers = {
     "Authorization": f"ApiKey {api_key}",
