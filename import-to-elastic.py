@@ -13,7 +13,9 @@ headers = {
     "kbn-xsrf": "true"
 }
 
-response = requests.post(f"{kibana_url}/api/detection_engine/rules/_import", headers=headers, files={"file": open(r"./exports/exported_rules.ndjson", "rb")}, verify=False)
+response = requests.post(f"{kibana_url}/api/detection_engine/rules/_import?overwrite=true", 
+                         headers=headers, files={"file": open(r"./exports/exported_rules.ndjson", "rb")}, 
+                         verify=False)
 print(response.content)
 response.raise_for_status()
 
