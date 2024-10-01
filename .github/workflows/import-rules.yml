@@ -14,7 +14,36 @@ jobs:
     environment: Automation
     steps:
     - uses: actions/checkout@v4
-    
+
+    - name: Merge upstream
+      run: |
+        # "git checkout master" is unnecessary, already here by default
+        echo "git pull --unshallow"
+        git pull --unshallow  # this option is very important, you would get
+                              # complains about unrelated histories without it.
+                              # (but actions/checkout@v2 can also be instructed
+                              # to fetch all git depth right from the start)
+
+        echo "git remote add upstream https://github.com/elastic/detection-rules.git"
+        git remote add upstream https://github.com/elastic/detection-rules.git
+        echo "git fetch upstream main"
+        git fetch upstream main
+
+        # Neither forget the -b opt,
+        # the feature/x ref is ambiguous at this stage
+        # echo "git checkout main #-b feature/x origin/feature/x"
+        # git checkout main #-b feature/x origin/feature/x
+
+        echo 'git config --global user.email "you@example.com"'
+        git config --global user.email "you@example.com"
+        echo 'git config --global user.name "Your Name"'
+        git config --global user.name "Your Name"
+        
+        echo "git merge --no-edit upstream/main"
+        git merge --no-edit main
+        echo "git push origin main"
+        git push origin main --force
+        
     - name: Set up Python 
       uses: actions/setup-python@v4
       with:
@@ -38,3 +67,5 @@ jobs:
       env: 
         DR_KIBANA_URL: ${{ secrets.DR_KIBANA_URL }}
         DR_API_KEY: ${{ secrets.DR_API_KEY }}
+
+
