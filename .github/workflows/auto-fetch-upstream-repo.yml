@@ -28,7 +28,7 @@ jobs:
           echo "git checkout main #-b feature/x origin/feature/x"
           git checkout main #-b feature/x origin/feature/x
 
-          echo 'git config --global user.email "you@example.com"
+          echo 'git config --global user.email "you@example.com"'
           git config --global user.email "you@example.com"
           echo 'git config --global user.name "Your Name"'
           git config --global user.name "Your Name"
