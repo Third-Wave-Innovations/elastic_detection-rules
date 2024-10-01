@@ -18,7 +18,7 @@ jobs:
                                 # (but actions/checkout@v2 can also be instructed
                                 # to fetch all git depth right from the start)
 
-          echo "git remote add upstream https://github.com/elastic/detection-rules.git"
+          echo "git remote add upstream https://github.com/elastic/detection-rules.git"'
           git remote add upstream https://github.com/elastic/detection-rules.git
           echo "git fetch upstream main"
           git fetch upstream main
