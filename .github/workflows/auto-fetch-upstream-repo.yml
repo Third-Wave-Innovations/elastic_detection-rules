@@ -32,6 +32,11 @@ jobs:
           git config --global user.email "you@example.com"
           echo 'git config --global user.name "Your Name"'
           git config --global user.name "Your Name"
+
+          echo "touch text.txt"
+          touch test.txt
+          echo "git add test.txt"
+          git add test.txt
           
           echo "git merge --no-edit upstream/main"
           git merge --no-edit main
