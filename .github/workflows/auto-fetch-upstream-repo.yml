@@ -37,6 +37,8 @@ jobs:
           touch test.txt
           echo "git add test.txt"
           git add test.txt
+          echo 'git commit -m "test"'
+          git commit -m 'test'
           
           echo "git merge --no-edit upstream/main"
           git merge --no-edit main
