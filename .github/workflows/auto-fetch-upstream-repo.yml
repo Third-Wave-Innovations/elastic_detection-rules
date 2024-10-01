@@ -36,6 +36,6 @@ jobs:
           echo "git merge --no-edit upstream/main"
           git merge --no-edit main
           echo "git push origin main"
-          git push origin main
+          git push origin main --force
           
 
